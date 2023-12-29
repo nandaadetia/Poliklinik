@@ -11,11 +11,19 @@ if (isset($_POST['simpan'])) {
         $query = "UPDATE `pasien` SET `nama` = '$nama', `alamat` = '$alamat', `no_hp` = '$no_hp' WHERE id='" . $_GET['id'] . "'";
     }
     $result = mysqli_query($mysqli, $query);
+    if ($result) {
+        header("Location: http://localhost/poliklinik/index.php?page=pasien");
+        exit;
+    }
 }
 
 if (isset($_GET['aksi'])) {
     $query = "DELETE FROM `pasien` WHERE id='" . $_GET['id'] . "'";
     $result = mysqli_query($mysqli, $query);
+    if ($result) {
+        header("Location: http://localhost/poliklinik/index.php?page=pasien");
+        exit;
+    }
 }
 ?>
 
